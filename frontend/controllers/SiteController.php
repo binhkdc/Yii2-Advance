@@ -29,7 +29,7 @@ class SiteController extends Controller
         return [
             'access' => [
                 'class' => AccessControl::className(),
-                'only' => ['logout', 'signup', 'about','welcome','contact'],
+                'only' => ['logout', 'signup', 'index', 'error', 'faq','contact'],
                 'rules' => [
                     [
                         'actions' => ['signup'],
@@ -42,7 +42,7 @@ class SiteController extends Controller
                         'roles' => ['@'],
                     ],
                     [
-                        'actions' => ['error', 'index', 'faq'],
+                        'actions' => ['error', 'index', 'faq','contact'],
                         'allow' => true,
                         'roles' => ['?', '@'],
                     ],
@@ -56,14 +56,14 @@ class SiteController extends Controller
             ],
         ];
     }
-    public function beforeAction($action)
-    {
-        $this->layout = 'layout';
-        if (!parent::beforeAction($action)) {
-            return false;
-        }
-        return true; // or false to not run the action
-    }
+//    public function beforeAction($action)
+//    {
+//        $this->layout = 'layout';
+//        if (!parent::beforeAction($action)) {
+//            return false;
+//        }
+//        return true; // or false to not run the action
+//    }
     /**
      * {@inheritdoc}
      */
@@ -83,6 +83,7 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
+        $this->layout='caroselIndex';
         return $this->render('index');
     }
 

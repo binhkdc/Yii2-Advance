@@ -29,14 +29,12 @@ AppAsset::register($this);
 <?php $this->beginBody() ?>
 
     <?= $this->render('nav')?>
-    <main role="main">
-        <div class="container">
+    <main role="main" class="background-index">
             <?= Breadcrumbs::widget([
                 'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
             ]) ?>
             <?= Alert::widget() ?>
             <?= $content ?>
-        </div>
     </main>
     <footer class="footer mt-auto py-3 text-muted">
         <div class="container">
