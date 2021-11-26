@@ -130,4 +130,23 @@ class PostController extends Controller
 
         throw new NotFoundHttpException('The requested page does not exist.');
     }
+
+    public function actionSort(){
+        $searchModel = new PostSearch();
+        $dataProvider = $searchModel->sort($this->request->queryParams);
+
+        return $this->render('sort', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
+    }
+    public function actionFilter(){
+        $searchModel = new PostSearch();
+        $dataProvider = $searchModel->filter($this->request->queryParams);
+
+        return $this->render('filter', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
+    }
 }

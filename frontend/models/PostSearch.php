@@ -69,4 +69,73 @@ class PostSearch extends PostForm
             ->andFilterWhere(['like', 'status', $this->status]);
         return $dataProvider;
     }
+    public function sort($params)
+    {
+        $query = PostForm::find();
+
+        // add conditions that should always apply here
+
+        $dataProvider = new ActiveDataProvider([
+            'query' => $query,
+        ]);
+
+        $this->load($params);
+
+        if (!$this->validate()) {
+            // uncomment the following line if you do not want to return any records when validation fails
+            // $query->where('0=1');
+            return $dataProvider;
+        }
+
+        // grid filtering conditions
+        $query->andFilterWhere([
+            'id' => $this->id,
+            'created' => $this->created,
+            'updated' => $this->updated,
+        ]);
+
+        $query ->select(['id','title','admin','content','status','image'])
+            ->from('post')
+            ->orderBy([
+                'image'=>SORT_DESC])
+            ->limit(10)
+            ->asArray()
+            ->all();
+        return $dataProvider;
+    }
+    public function filter($params)
+    {
+        $query = PostForm::find();
+
+        // add conditions that should always apply here
+
+        $dataProvider = new ActiveDataProvider([
+            'query' => $query,
+        ]);
+
+        $this->load($params);
+
+        if (!$this->validate()) {
+            // uncomment the following line if you do not want to return any records when validation fails
+            // $query->where('0=1');
+            return $dataProvider;
+        }
+
+        // grid filtering conditions
+        $query->andFilterWhere([
+            'id' => $this->id,
+            'created' => $this->created,
+            'updated' => $this->updated,
+        ]);
+
+        $query ->select(['id','title','admin','content','status','image'])
+            ->from('post')
+            ->filterWhere(['admin'=>'binhkdc'])
+            ->limit(10)
+            ->asArray()
+            ->all();
+        return $dataProvider;
+    }
+
+
 }

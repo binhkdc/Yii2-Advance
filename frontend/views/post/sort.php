@@ -17,12 +17,11 @@ $this->params['breadcrumbs'][] = $this->title;
     <p>
         <?= Html::a('Create Post Form', ['create'], ['class' => 'btn btn-success']) ?>
 
-        <?= Html::a('sort(DESC)', ['sort'], ['class' => 'btn btn-success']) ?>
 
-        <?= Html::a('filter(binhkdc)', ['filter'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('go back', ['index'], ['class' => 'btn btn-success']) ?>
     </p>
 
-<!--    --><?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+    <!--    --><?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
