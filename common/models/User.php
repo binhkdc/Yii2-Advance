@@ -2,9 +2,11 @@
 
 namespace common\models;
 
+use frontend\models\PostForm;
 use Yii;
 use yii\base\NotSupportedException;
 use yii\behaviors\TimestampBehavior;
+use yii\data\ActiveDataProvider;
 use yii\db\ActiveRecord;
 use yii\web\IdentityInterface;
 
@@ -14,12 +16,16 @@ use yii\web\IdentityInterface;
  * @property integer $id
  * @property string $username
  * @property string $password
+ * @property string $tel
  * @property string|null $auth_key
  * @property string $password_hash
  * @property string $password_reset_token
  * @property string $verification_token
  * @property string $email
+ * @property string $role
+ * @property string $qr_image
  * @property integer $status
+ * @property integer $avatar
  * @property integer $created_at
  * @property integer $updated_at
  */
@@ -27,7 +33,7 @@ class User extends ActiveRecord implements IdentityInterface
 {
     const STATUS_DELETED = 0;
     const STATUS_INACTIVE = 9;
-    const STATUS_ACTIVE = 10;
+    const STATUS_ACTIVE = 1;
 
 
     /**
@@ -218,4 +224,6 @@ class User extends ActiveRecord implements IdentityInterface
     {
         $this->password_reset_token = null;
     }
+
+
 }

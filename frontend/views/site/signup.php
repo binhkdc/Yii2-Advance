@@ -25,6 +25,10 @@ $this->title = 'Signup';
 
             <?= $form->field($model, 'password')->passwordInput() ?>
 
+            <?= $form->field($model, 'role')->dropDownList(['1' => 'admin', '0' => 'user']); ?>
+
+            <?= $form->field($model, 'tel') ?>
+
             <div class="form-group">
                 <?= Html::submitButton('Signup', ['class' => 'btn btn-primary', 'name' => 'signup-button']) ?>
             </div>

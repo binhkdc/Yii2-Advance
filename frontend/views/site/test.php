@@ -24,7 +24,7 @@ $welcome= Url::to(['site/welcome']);
         </div>
         <div  class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
             <p><b>QR CODE Của bạn</b></p>
-            <img src="<?= yii::$app->user->identity->qr_image?>" title="Url By google  " />
+            <img src="<?= yii::$app->user->identity->qr_image?>" title="Url By google" />
         </div>
     </div>
 <?php }?>

@@ -1,12 +1,11 @@
 <?php
 
 /* @var $this yii\web\View */
-/* @var $name string */
 /* @var $message string */
 /* @var $exception Exception */
 
 $cdnUrl=Yii::$app->params['frontend'];
-$this->title = $name;
+
 ?>
 
 <!DOCTYPE html>

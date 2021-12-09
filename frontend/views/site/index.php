@@ -21,6 +21,7 @@ $cdnUrl = Yii::$app->params['frontend'];
                 <p class="lead">You have successfully created your Yii-powered application.</p>
                 <p><a class="btn btn-lg btn-success" href="<?= $url ?>">Liệt kê</a></p>
                 <p><a class="btn btn-lg btn-success" href="<?= $urlPost ?>">Danh sách sản phẩm</a></p>
+                <p><a class="btn btn-lg btn-success" href="<?= Url::to(['site/manage']) ?>">Quan ly</a></p>
             </div>
 
             <div class="body-content">
